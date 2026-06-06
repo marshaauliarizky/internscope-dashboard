@@ -7,6 +7,11 @@ import ast
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
+# ── AUTO GENERATE DATA IF NOT EXISTS ───────────────────────────
+import os
+if not os.path.exists("data/jobs_cleaned.csv"):
+    import subprocess
+    subprocess.run(["python", "scraper/preprocess.py"])
 # ── CONFIG ─────────────────────────────────────────────────────
 st.set_page_config(
     page_title="InternScope — Job Market Analytics",
